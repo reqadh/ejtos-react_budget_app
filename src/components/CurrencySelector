@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
+import currencySymbols from '../currencySymbols';
 
 const CurrencySelector = () => {
     const { dispatch, currency } = useContext(AppContext);
@@ -15,12 +16,13 @@ const CurrencySelector = () => {
 
     return (
         <div style={{ margin: '1rem', minWidth: '200px' }}>
-            <label htmlFor="currency-selector" style={{ display: 'block', marginBottom: '0.5rem' }}>Currency ({currency})</label>
-            <select
+            <label htmlFor="currency-selector" style={{ display: 'block', marginBottom: '0.5rem' }}>
+                Currency ({currencySymbols[currency]} {currency})
+            </label>            <select
                 id="currency-selector"
                 value={selectedCurrency}
                 onChange={handleCurrencyChange}
-                style={{ width: '100%', padding: '0.5rem', borderRadius: '5px', borderColor: 'lightgreen', appearance: 'none',backgroundColor:'lightgreen' }}
+                style={{ width: '100%', padding: '0.5rem', borderRadius: '5px', borderColor: 'lightgreen', appearance: 'none', backgroundColor: 'lightgreen' }}
             >
                 <option value="Dollar">$ Dollar</option>
                 <option value="Pound">£ Pound</option>
