@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { AppContext } from '../context/AppContext';
+import currencySymbols from '../currencySymbols';
 
 const AllocationForm = (props) => {
     const { dispatch, remaining,currency } = useContext(AppContext);
@@ -67,7 +68,7 @@ const AllocationForm = (props) => {
                         <option defaultValue value="Add">Add</option>
                         <option value="Reduce">Reduce</option>
                     </select>
-                    <span className="input-group-text">{currency}</span>
+                    <span className="input-group-text">{currencySymbols[currency]}</span>
                     <input
                         required='required'
                         type='text'
